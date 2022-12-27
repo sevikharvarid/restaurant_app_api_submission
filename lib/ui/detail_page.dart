@@ -40,6 +40,8 @@ class DetailPage extends StatelessWidget {
                       children: [
                         Image.network(
                           "https://${AppStrings.baseUrl}/images/medium/${datas.pictureId}",
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height,
                         ),
                         Align(
                           alignment: Alignment.topLeft,

@@ -16,6 +16,12 @@ class SearchLoading extends SearchState {
 }
 
 class SearchError extends SearchState {
+  String? error;
+
+  SearchError({
+    this.error,
+  });
+
   @override
   List<Object?> get props => [];
 }

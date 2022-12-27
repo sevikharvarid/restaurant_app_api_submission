@@ -15,16 +15,20 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
   FutureOr<void> onSearchStarted(
       SearchStarted event, Emitter<SearchState> emit) async {
-    emit(SearchLoading());
-    searchData = await apiService.searchListData(event.query!);
-    if (searchData!.error) {
-      emit(SearchError());
-    } else {
-      if (searchData!.founded != 0) {
-        emit(SearchLoaded(listData: searchData!.restaurants));
+    try {
+      emit(SearchLoading());
+      searchData = await apiService.searchListData(event.query!);
+      if (searchData!.error) {
+        emit(SearchError());
       } else {
-        emit(SearchNotFound());
+        if (searchData!.founded != 0) {
+          emit(SearchLoaded(listData: searchData!.restaurants));
+        } else {
+          emit(SearchNotFound());
+        }
       }
+    } catch (e) {
+      emit(SearchError());
     }
   }
 }

@@ -8,6 +8,7 @@ import 'package:restaurant_app_api_submission/bloc/home/home_state.dart';
 import 'package:restaurant_app_api_submission/common/constants/strings.dart';
 import 'package:restaurant_app_api_submission/ui/detail_page.dart';
 import 'package:restaurant_app_api_submission/widgets/card_content.dart';
+import 'package:restaurant_app_api_submission/widgets/custom_error_indicator.dart';
 import 'package:restaurant_app_api_submission/widgets/custom_loading_indicator.dart';
 import 'package:restaurant_app_api_submission/widgets/header_title.dart';
 
@@ -27,6 +28,11 @@ class HomePage extends StatelessWidget {
       body: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
           final data = context.read<HomeBloc>().listData?.restaurants;
+          if (state is HomeError) {
+            return const Center(
+              child: CustomErrorIndicator(),
+            );
+          }
           if (state is HomeLoading) {
             return const Center(child: CustomLoadingIndicator());
           }

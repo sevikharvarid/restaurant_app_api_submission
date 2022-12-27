@@ -52,7 +52,7 @@ class SearchPage extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 7,
+              flex: 5,
               child: BlocBuilder<SearchBloc, SearchState>(
                 builder: (context, state) {
                   if (state is SearchNotFound) {

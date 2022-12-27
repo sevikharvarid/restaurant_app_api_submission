@@ -17,12 +17,20 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   FutureOr<void> getStartedList(
       HomeStarted event, Emitter<HomeState> emit) async {
-    listData = await apiService.fetchListData();
-    emit(HomeLoading());
-    emit(
-      HomeLoaded(
-        listData: listData!.restaurants,
-      ),
-    );
+    try {
+      listData = await apiService.fetchListData();
+      emit(HomeLoading());
+      emit(
+        HomeLoaded(
+          listData: listData!.restaurants,
+        ),
+      );
+    } catch (e) {
+      emit(
+        HomeError(
+          error: e.toString(),
+        ),
+      );
+    }
   }
 }
