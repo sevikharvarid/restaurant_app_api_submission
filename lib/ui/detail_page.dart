@@ -69,55 +69,57 @@ class DetailPage extends StatelessWidget {
                   flex: 2,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          datas.name,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Text(
-                          datas.address,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 14,
-                          ),
-                        ),
-                        const CustomDivider(),
-                        Text(
-                          datas.description,
-                          textAlign: TextAlign.justify,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 14,
-                          ),
-                        ),
-                        const CustomDivider(),
-                        Row(
-                          children: [
-                            const Text(
-                              "${AppStrings.rating} : ",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                              ),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            datas.name,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w600,
                             ),
-                            Text(
-                              datas.rating.toString(),
-                              style: const TextStyle(
-                                color: Colors.orange,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800,
-                              ),
+                          ),
+                          Text(
+                            datas.address,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
                             ),
-                          ],
-                        ),
-                      ],
+                          ),
+                          const CustomDivider(),
+                          Text(
+                            datas.description,
+                            textAlign: TextAlign.justify,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                            ),
+                          ),
+                          const CustomDivider(),
+                          Row(
+                            children: [
+                              const Text(
+                                "${AppStrings.rating} : ",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              Text(
+                                datas.rating.toString(),
+                                style: const TextStyle(
+                                  color: Colors.orange,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 )
