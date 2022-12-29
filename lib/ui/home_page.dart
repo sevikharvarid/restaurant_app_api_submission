@@ -34,7 +34,12 @@ class HomePage extends StatelessWidget {
             );
           }
           if (state is HomeLoading) {
-            return const Center(child: CustomLoadingIndicator());
+            // return const Center(child: CustomLoadingIndicator());
+            return const Center(
+              child: CircularProgressIndicator(
+                color: Colors.black,
+              ),
+            );
           }
           if (state is HomeLoaded) {
             return ListView.builder(

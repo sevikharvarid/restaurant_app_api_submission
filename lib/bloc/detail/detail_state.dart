@@ -25,3 +25,8 @@ class DetailLoaded extends DetailState {
   @override
   List<Object?> get props => [restaurantDetail];
 }
+
+class DetailError extends DetailState {
+  @override
+  List<Object?> get props => [];
+}

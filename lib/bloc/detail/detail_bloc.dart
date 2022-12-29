@@ -20,11 +20,15 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
     emit(
       DetailLoading(),
     );
-    detailData = await apiService.getDetailData(
-      event.id!,
-    );
-    emit(
-      DetailLoaded(restaurantDetail: detailData!.restaurant),
-    );
+    try {
+      detailData = await apiService.getDetailData(
+        event.id!,
+      );
+      emit(
+        DetailLoaded(restaurantDetail: detailData!.restaurant),
+      );
+    } catch (e) {
+      emit(DetailError());
+    }
   }
 }
